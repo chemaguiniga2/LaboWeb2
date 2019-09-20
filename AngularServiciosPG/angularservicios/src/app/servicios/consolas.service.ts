@@ -46,42 +46,42 @@ export class ConsolasService {
 
     private juegosXbox:Juegos[] = [
         {
-            nombre: 'Madden 20',
-            imagen: 'https://media.gamestop.com/i/gamestop/10172879/Madden-NFL-20?$pdp$',
-            developer: 'Juan Sosa',
+            nombre: 'FIFA 20',
+            imagen: 'https://ss423.liverpool.com.mx/xl/1084716941.jpg',
+            developer: 'Juan Rodriguez',
             lanzamiento:'08/07/2019',
         },
         {
-            nombre: 'Spiderman',
-            imagen: 'https://static-ca.ebgames.ca/images/products/725283/3max.jpg',
+            nombre: 'Red Dead Redemption 2',
+            imagen: 'https://static-ca.ebgames.ca/images/products/727458/3max.jpg',
             developer: 'Patricio Estrella',
-            lanzamiento:'12/07/2018',
+            lanzamiento:'02/10/2018',
         },
         {
-            nombre: 'The Last of Us',
-            imagen: 'https://upload.wikimedia.org/wikipedia/en/4/46/Video_Game_Cover_-_The_Last_of_Us.jpg',
+            nombre: 'F1 2019',
+            imagen: 'https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201905/10/00197579510872____1__1200x1200.jpg',
             developer: 'Travis Scott',
-            lanzamiento:'01/03/2015',
+            lanzamiento:'01/02/2019',
         },
     ];
     private juegosSwitch:Juegos[] = [
         {
-            nombre: 'Madden 20',
-            imagen: 'https://media.gamestop.com/i/gamestop/10172879/Madden-NFL-20?$pdp$',
-            developer: 'Juan Sosa',
-            lanzamiento:'08/07/2019',
+            nombre: 'Mario Odyssey',
+            imagen: 'https://images-na.ssl-images-amazon.com/images/I/51cE%2B9FaiWL._AC_.jpg',
+            developer: 'Luis Elizondo',
+            lanzamiento:'12/09/2018',
         },
         {
-            nombre: 'Spiderman',
-            imagen: 'https://static-ca.ebgames.ca/images/products/725283/3max.jpg',
-            developer: 'Patricio Estrella',
+            nombre: 'Mario Kart',
+            imagen: 'https://i.blogs.es/935163/mariokart8deluxe02/1366_2000.jpg',
+            developer: 'Bob Esponja',
             lanzamiento:'12/07/2018',
         },
         {
-            nombre: 'The Last of Us',
-            imagen: 'https://upload.wikimedia.org/wikipedia/en/4/46/Video_Game_Cover_-_The_Last_of_Us.jpg',
-            developer: 'Travis Scott',
-            lanzamiento:'01/03/2015',
+            nombre: 'Super Smash Bros',
+            imagen: 'https://media.gamestop.com/i/gamestop/10159620/Super-Smash-Bros.-Ultimate?$pdp$',
+            developer: 'Miranda Kerr',
+            lanzamiento:'02/03/2018',
         },
     ];
 

@@ -22,7 +22,6 @@ export class JuegosconsolaComponent implements OnInit {
   
 
   ngOnInit() {
-    //this.juegos = this.consolasService.obtieneJuegos()
   }
 
 }
