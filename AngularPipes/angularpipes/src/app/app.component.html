@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>Uppercase</h1>
+  <br>
+  Valor Original:  {{ juego }}
+  <br>
+
+  {{ juego }} | uppercase = {{ juego | uppercase }}
+  <br>
+
+  <h1>Lowercase</h1>
+  <br>
+  Valor Original:  {{ juego }}
+  <br>
+
+  {{ juego }} | lowercase = {{ juego | lowercase }}
+  <br>
+
+  <h1>Slice</h1>
+  <br>
+  Valor original: {{ juego }}
+  <br>
+  {{  juego }} | slice:7 = {{ juego | slice:7 }}
+  <br>
+
+  <h1>Slice</h1>
+  <br>
+  Valor original: {{ juego }}
+  <br>
+  {{  juego }} | slice:7 = {{ juego | slice:0:7 }}
+  <br>
+
+  <h1>Number</h1>
+  <br>
+  Valor original: {{ numero }}
+  <br>
+  {{ numero }} | number = {{ numero | number }}
+
+  <h1>Porcentaje</h1>
+  <br>
+  Valor original: {{ porcentaje }}
+  <br>
+  {{ porcentaje }} | percent = {{ porcentaje | percent }}
+
+  <h1>Porcentaje</h1>
+  <br>
+  Valor original: {{ porcentaje }}
+  <br>
+  {{ porcentaje }} | percent:'2.0-2' = {{ porcentaje | percent: '2.0-2' }}
+  <br>
+
+  <h1>Currency</h1>
+  <br>
+  Valor original: {{ importe }}
+  <br>
+  {{ importe }} | currency = {{ importe | currency }}
+  <br>
+
+
+
+</div>
