@@ -14,19 +14,22 @@ export class ConsolasService {
           imagen: "assets/tlou.jpg",
           nombre: "Juego PC 1",
           developer: "Naughty Dog",
-          lanzamiento: "2013"
+          lanzamiento: "2013",
+          idConsola: 0
         },
         {
           imagen: "assets/p5.jpg",
           nombre: "Juego PC 2",
           developer: "P-Studio",
-          lanzamiento: "2017"
+          lanzamiento: "2017",
+          idConsola: 0,
         },
         {
           imagen: "assets/hzd.jpg",
           nombre: "Juego PC 3",
           developer: "Guerrilla Games",
-          lanzamiento: "2017"
+          lanzamiento: "2017",
+          idConsola: 0,
         }
       ]
     },
@@ -40,19 +43,22 @@ export class ConsolasService {
           imagen: "assets/p5.jpg",
           nombre: "Persona 5",
           developer: "P-Studio",
-          lanzamiento: "2017"
+          lanzamiento: "2017",
+          idConsola: 1,
         },
         {
           imagen: "assets/tlou.jpg",
           nombre: "The Last of Us",
           developer: "Naughty Dog",
-          lanzamiento: "2013"
+          lanzamiento: "2013",
+          idConsola: 1,
         },
         {
           imagen: "assets/hzd.jpg",
           nombre: "Horizon: Zero Dawn",
           developer: "Guerrilla Games",
-          lanzamiento: "2017"
+          lanzamiento: "2017",
+          idConsola: 1,
         }
       ]
     },
@@ -66,19 +72,22 @@ export class ConsolasService {
           imagen: "assets/tlou.jpg",
           nombre: "Juego Xbox 1",
           developer: "Naughty Dog",
-          lanzamiento: "2013"
+          lanzamiento: "2013",
+          idConsola: 2,
         },
         {
           imagen: "assets/p5.jpg",
           nombre: "Juego Xbox 2",
           developer: "P-Studio",
-          lanzamiento: "2017"
+          lanzamiento: "2017",
+          idConsola: 2,
         },
         {
           imagen: "assets/hzd.jpg",
           nombre: "Juego Xbox 3",
           developer: "Guerrilla Games",
-          lanzamiento: "2017"
+          lanzamiento: "2017",
+          idConsola: 2,
         }
       ]
     },
@@ -92,19 +101,22 @@ export class ConsolasService {
           imagen: "assets/tlou.jpg",
           nombre: "Juego Switch 1",
           developer: "Naughty Dog",
-          lanzamiento: "2013"
+          lanzamiento: "2013",
+          idConsola: 3,
         },
         {
           imagen: "assets/p5.jpg",
           nombre: "Juego Switch 2",
           developer: "P-Studio",
-          lanzamiento: "2017"
+          lanzamiento: "2017",
+          idConsola: 3,
         },
         {
           imagen: "assets/hzd.jpg",
           nombre: "Juego Switch 3",
           developer: "Guerrilla Games",
-          lanzamiento: "2017"
+          lanzamiento: "2017",
+          idConsola: 3,
         }
       ]
     }
@@ -142,6 +154,45 @@ export class ConsolasService {
     return resultadoConsolas;
   }
 
+  buscarJuegos(palabras:string):any[]{
+    let resultadoJuegos:any[] = [];
+    palabras = palabras.toLowerCase();
+    for(let consola of this.consolas){
+      for (let juego of consola.juegos){
+        let juegoConsola = juego.nombre.toLowerCase();
+        if(juegoConsola.indexOf(palabras) >= 0){
+          resultadoJuegos.push(juego);
+        }
+      }
+    }
+    return resultadoJuegos;
+  }
+
+  getIndexJuego(nombre:string) {
+    let indexIn=0;
+    for (let consola of this.consolas) {
+      for (let juego of consola.juegos) {
+        if(juego.nombre === nombre) {
+          return indexIn;
+        }
+        indexIn ++;
+      }
+      indexIn= 0;
+    }
+    return indexIn;
+  }
+
+  getIndexConsola(nombre:string) {
+    let indexOf = 0;
+    for (let consola of this.consolas) {
+      if (consola.nombre === nombre) {
+        return indexOf;
+      }
+      indexOf ++;
+    }
+    return indexOf;
+  }
+  
 }
 
 export interface Consola{

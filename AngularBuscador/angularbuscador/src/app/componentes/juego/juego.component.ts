@@ -12,6 +12,7 @@ export class JuegoComponent implements OnInit {
   juego:any;
   idConsola:string;
   idJuego:string;
+  indexOfGame:any;
 
   constructor(private activatedRoute:ActivatedRoute,
               private consolasService:ConsolasService) {
@@ -20,7 +21,8 @@ export class JuegoComponent implements OnInit {
       console.log(params['idJuego']);
       this.idConsola = params['idConsola'];
       this.idJuego = params['idJuego'];
-      this.juego = this.consolasService.obtieneJuego(this.idConsola, this.idJuego);      
+      this.indexOfGame = this.consolasService.getIndexJuego(this.idJuego);
+      this.juego = this.consolasService.obtieneJuego(this.idConsola, this.indexOfGame);      
     })
   }
 

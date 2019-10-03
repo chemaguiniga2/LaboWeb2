@@ -8,6 +8,7 @@ import { InfoconsolaComponent } from './componentes/infoconsola/infoconsola.comp
 import { JuegosconsolaComponent } from './componentes/juegosconsola/juegosconsola.component';
 import { JuegoComponent } from './componentes/juego/juego.component';
 import { ResconsolasComponent } from './componentes/buscador/resconsolas/resconsolas.component';
+import { ResjuegosComponent } from './componentes/buscador/resjuegos/resjuegos.component';
 
 const APP_ROUTES: Routes = [
 
@@ -23,6 +24,7 @@ const APP_ROUTES: Routes = [
   { path: 'juego/:idConsola/:idJuego', component: JuegoComponent },
   { path: 'resconsolas/:idConsola/:idJuego', component: JuegoComponent },
   { path: 'resconsolas/:palabrasBusqueda', component: ResconsolasComponent },
+  { path: 'resjuegos/:palabrasBusqueda', component: ResjuegosComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'principal' }
 
 ];

@@ -13,4 +13,8 @@ export class EncabezadoComponent implements OnInit {
     console.log(palabras);
     this.router.navigate(['/resconsolas', palabras]);
   }
+  buscarJuegos(palabras:string){
+    console.log(palabras);
+    this.router.navigate(['/resjuegos', palabras]);
+  }
 }
