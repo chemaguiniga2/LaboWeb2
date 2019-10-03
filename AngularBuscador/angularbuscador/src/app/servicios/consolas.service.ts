@@ -182,17 +182,7 @@ export class ConsolasService {
     return indexIn;
   }
 
-  getIndexConsola(nombre:string) {
-    let indexOf = 0;
-    for (let consola of this.consolas) {
-      if (consola.nombre === nombre) {
-        return indexOf;
-      }
-      indexOf ++;
-    }
-    return indexOf;
-  }
-  
+
 }
 
 export interface Consola{
