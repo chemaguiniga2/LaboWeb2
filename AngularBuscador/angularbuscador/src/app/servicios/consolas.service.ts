@@ -122,6 +122,8 @@ export class ConsolasService {
     }
   ];
 
+  public entradas:any[] = [];
+
   constructor() {
     console.log("ConsolasService Creado...");
   }
@@ -180,6 +182,18 @@ export class ConsolasService {
       indexIn= 0;
     }
     return indexIn;
+  }
+
+  guardarEntrada(entrada:any) {
+    this.entradas.push(entrada);
+  }
+
+  obtenerEntradas() {
+    return this.entradas;
+  }
+
+  getFecha() {
+    return Date();
   }
 
 

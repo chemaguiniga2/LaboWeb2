@@ -16,6 +16,7 @@ import { ResconsolasComponent } from './componentes/buscador/resconsolas/rescons
 import { ResjuegosComponent } from './componentes/buscador/resjuegos/resjuegos.component';
 import { BlogComponent } from './componentes/blog/blog.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { BlogComponent } from './componentes/blog/blog.component';
     JuegoComponent,
     ResconsolasComponent,
     ResjuegosComponent,
-    BlogComponent
+    BlogComponent,
+    
   ],
   imports: [
     BrowserModule,

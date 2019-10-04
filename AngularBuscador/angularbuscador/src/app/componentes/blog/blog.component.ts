@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ConsolasService } from '../../servicios/consolas.service';
 
 @Component({
   selector: 'app-blog',
@@ -11,8 +12,9 @@ export class BlogComponent implements OnInit {
   formulario:FormGroup;
   isValidNombre:boolean=false;
   isValidEntrada:boolean=false;
+  entradas:any[];
 
-  constructor() {
+  constructor(private consolasService:ConsolasService) {
     this.formulario = new FormGroup({
       'nombre': new FormControl('', [Validators.required, Validators.minLength(5)]),
       'entrada': new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(30)]),
@@ -29,6 +31,16 @@ export class BlogComponent implements OnInit {
     validationsEntrada.classList.toggle('d-none');
     this.isValidEntrada = !this.formulario.get('entrada').valid;
     this.isValidNombre = !this.formulario.get('nombre').valid;
+    
+    if (this.formulario.valid) {
+      this.consolasService.guardarEntrada({
+        nombre: this.formulario.controls['nombre'].value,
+        fecha: this.consolasService.getFecha(),
+        entrada: this.formulario.controls['entrada'].value,
+      });
+      
+      this.entradas = this.consolasService.obtenerEntradas();
+    }
   }
 
 }
