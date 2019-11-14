@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ConsolasService {
@@ -124,8 +125,28 @@ export class ConsolasService {
 
   public entradas:any[] = [];
 
-  constructor() {
+  constructor(public httpClient:HttpClient) {
     console.log("ConsolasService Creado...");
+  }
+
+  getConsolas(){
+    let servicioRest = 'http://localhost:8585/plataformas';
+    return this.httpClient.get(servicioRest);
+  }
+
+  getConsolaById(id:string){
+    let servicioRest = `http://localhost:8585/plataformas/id/${id}`;
+    return this.httpClient.get(servicioRest);
+  }
+
+  getJuegosByIdPlat(id:string){
+    let servicioRest = `http://localhost:8585/plataformas/idPlat/juegos/${id}`;
+    return this.httpClient.get(servicioRest);
+  }
+
+  getInfoJuego(idPlat:string, idJuego:string){
+    let servicioRest = `http://localhost:8585/plataformas/idPlat/idJuego/${idPlat}/${idJuego}`;
+    return this.httpClient.get(servicioRest);
   }
 
   obtieneConsolas():Consola[]{

@@ -12,6 +12,8 @@ export class InfoconsolaComponent implements OnInit {
   consola:any = {};
   idConsola:string;
 
+  infoConsola:any;
+
   constructor(private activatedRoute:ActivatedRoute,
               private consolasService:ConsolasService) {
     this.activatedRoute.params.subscribe(params => {
@@ -19,6 +21,13 @@ export class InfoconsolaComponent implements OnInit {
       this.consola = this.consolasService.obtieneConsola(params['id']);
       this.idConsola = params['id'];
     })
+    this.consolasService.getConsolaById(this.idConsola).subscribe(
+      consolas => {
+        this.infoConsola = consolas;
+        console.log(consolas);
+      }
+    )
+
   }
 
   ngOnInit() {

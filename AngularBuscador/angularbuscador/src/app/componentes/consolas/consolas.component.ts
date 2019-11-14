@@ -9,12 +9,18 @@ import { ConsolasService, Consola } from '../../servicios/consolas.service';
 export class ConsolasComponent implements OnInit {
 
   consolas:Consola[] = [];
+  consolasMongo:any;
 
-  constructor( private consolasService:ConsolasService ) { }
+  constructor( private consolasService:ConsolasService ) {
+    this.consolasService.getConsolas().subscribe(
+      consolas => {
+        this.consolasMongo = consolas;
+        console.log(consolas);
+      }
+    )
+  }
 
   ngOnInit() {
-    this.consolas = this.consolasService.obtieneConsolas();
-    console.log(this.consolas);
   }
 
 }

@@ -13,6 +13,7 @@ export class JuegoComponent implements OnInit {
   idConsola:string;
   idJuego:string;
   indexOfGame:any;
+  juegoInfo:any;
 
   constructor(private activatedRoute:ActivatedRoute,
               private consolasService:ConsolasService) {
@@ -24,6 +25,13 @@ export class JuegoComponent implements OnInit {
       this.indexOfGame = this.consolasService.getIndexJuego(this.idJuego);
       this.juego = this.consolasService.obtieneJuego(this.idConsola, this.indexOfGame);      
     })
+
+    this.consolasService.getInfoJuego(this.idConsola, this.idJuego).subscribe(
+      consolas => {
+        this.juegoInfo = consolas;
+        console.log(consolas);
+      }
+    )
   }
 
   ngOnInit() {

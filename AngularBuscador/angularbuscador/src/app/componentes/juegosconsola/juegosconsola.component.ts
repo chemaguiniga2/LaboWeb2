@@ -11,6 +11,7 @@ export class JuegosconsolaComponent implements OnInit {
 
   juegos:any = [];
   idConsola:string;
+  juegosMongo:any;
 
   constructor( private consolasService:ConsolasService,
                private activatedRoute:ActivatedRoute) {
@@ -18,10 +19,16 @@ export class JuegosconsolaComponent implements OnInit {
        console.log(params['id']);
        this.idConsola = params['id'];
      })
+
+     this.consolasService.getJuegosByIdPlat(this.idConsola).subscribe(
+      consolas => {
+        this.juegosMongo = consolas;
+        console.log(consolas);
+      }
+    )
   }
 
   ngOnInit() {
-    this.juegos = this.consolasService.obtieneJuegosConsola(this.idConsola);
   }
 
 }
