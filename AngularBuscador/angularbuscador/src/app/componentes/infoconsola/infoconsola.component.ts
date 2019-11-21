@@ -17,14 +17,12 @@ export class InfoconsolaComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute,
               private consolasService:ConsolasService) {
     this.activatedRoute.params.subscribe(params => {
-      console.log(params['id']);
       this.consola = this.consolasService.obtieneConsola(params['id']);
       this.idConsola = params['id'];
     })
     this.consolasService.getConsolaById(this.idConsola).subscribe(
       consolas => {
         this.infoConsola = consolas;
-        console.log(consolas);
       }
     )
 

@@ -72,7 +72,7 @@ exports.obtener_plataforma_regex = function(req, res) {
         // db.collection("plataforma").findOne({})
         console.log(req.params.id);
        
-        db.collection("plataforma").findOne({_id: {$regex: reg}}, {projection:{nombre:1, imagen:1, ficha_tecnica:1, _id:0}}, function(err, result) {
+        db.collection("plataforma").findOne({nombre: {$regex: reg}}, {projection:{nombre:1, imagen:1, ficha_tecnica:1, _id:1}}, function(err, result) {
             if(err) {
                 throw err;
             }
@@ -334,5 +334,81 @@ exports.obtener_plataformas = function(req, res) {
 
 
 
+exports.insertar_plataformas = function(req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
+        if (err){
+
+            throw err;
+        }
+        const db = mdbclient.db(dbName);
+        console.log(req.body);
+        db.collection("plataforma").insertOne(req.body, function(err, result) {
+            if (err){
+                throw err;
+            }
+
+            mdbclient.close();
+            console.log('Datos guardados');
+        })
+    });
+};
+
+exports.insertar_blog = function(req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
+        if (err){
+
+            throw err;
+        }
+        const db = mdbclient.db(dbName);
+        console.log(req.body);
+        db.collection("blog").insertOne({ '_id': req.body._id, 'nombre': req.body.nombre, 'fecha_entrada': Date(), 'entrada': req.body.entrada }, function(err, result) {
+            if (err){
+                throw err;
+            }
+            mdbclient.close();
+            console.log('Datos guardados');
+        })
+    });
+};
+
+exports.insertar_juego = function(req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
+        if (err){
+
+            throw err;
+        }
+        const db = mdbclient.db(dbName);
+        console.log(req.body);
+        db.collection("juego").insertOne({ '_id': req.body._id, 'nombre': req.body.nombre, 'imagen_portada': req.body.imagen_portada, 'developer': req.body.developer, 'fecha_lanzamiento': req.body.fecha_lanzamiento, 'lista_imagenes': req.body.lista_imagenes, 'ligas_relacionadas': req.body.ligas_relacionadas }, function(err, result) {
+            if (err){
+                throw err;
+            }
+            mdbclient.close();
+            console.log('Datos guardados');
+        })
+    });
+};
+
+
+exports.obtener_blog = function(req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
+        if (err){
+
+            throw err;
+        }
+        const db = mdbclient.db(dbName);
+
+        db.collection("blog").find({}).project({nombre:1, fecha_entrada:1, entrada:1}).toArray(function(err, result) {
+
+            if (err){
+                throw err;
+            }
+            console.log("Resultados Obtenidos: " + result.length);
+            mdbclient.close();
+            res.end( JSON.stringify(result));
+
+            });
+    });
+};
 
 

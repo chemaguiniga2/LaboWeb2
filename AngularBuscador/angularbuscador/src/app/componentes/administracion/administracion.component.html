@@ -1,0 +1,77 @@
+<!-- id
+nombre
+imagen
+ficha_tecnica
+lista_juegos -->
+
+
+<form [formGroup]="formulario" (ngSubmit)="insertar()">
+    <div class="form-group">
+        <label for="_id">ID</label>
+        <input type="text" class="form-control" id="_id" placeholder="ID"
+        formControlName="_id">
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre"
+        formControlName="nombre">
+    </div>
+    <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <input type="text" class="form-control" id="imagen" placeholder="Imagen"
+        formControlName="imagen">
+    </div>
+    <div class="form-group">
+        <label for="ficha_tecnica">Ficha Técnica</label>
+        <input type="text" class="form-control" id="ficha_tecnica" placeholder="Ficha Técnica"
+        formControlName="ficha_tecnica">
+    </div>
+    <div formArrayName="lista_juegos">
+        <div *ngFor="let juego of formulario.get('lista_juegos').controls; index as i" [formGroupName]="i">
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Juego {{i + 1}}</label>
+                <div class="col-8">
+                    Id: <input class="form-control"
+                    type="text"
+                    placeholder="ID"
+                    formControlName="_id">
+                    Nombre: <input class="form-control"
+                    type="text"
+                    placeholder="Nombre"
+                    formControlName="nombre">
+                    Imagen URL: <input class="form-control"
+                    type="text"
+                    placeholder="URL"
+                    formControlName="imagen_portada">
+                    Developer: <input class="form-control"
+                    type="text"
+                    placeholder="Developer"
+                    formControlName="developer">
+                    Fecha Lanzamiento: <input class="form-control"
+                    type="text"
+                    placeholder="Fecha Lanzamiento"
+                    formControlName="fecha_lanzamiento">
+                    <div formArrayName="lista_imagenes">
+                        <div *ngFor="let juego of formulario.get('lista_juegos').controls; index as i" [formGroupName]="i">
+                            Imagen URL: <input class="form-control"
+                            type="text"
+                            placeholder="Url"
+                            formControlName="imagen">
+                        </div>
+                    </div>
+                    <div formArrayName="ligas_relacionadas">
+                        <div *ngFor="let juego of formulario.get('lista_juegos').controls; index as i" [formGroupName]="i">
+                            Ligas: <input class="form-control"
+                            type="text"
+                            placeholder="Url"
+                            formControlName="url">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    

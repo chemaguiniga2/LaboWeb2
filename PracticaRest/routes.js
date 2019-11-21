@@ -28,4 +28,16 @@ module.exports = function(app) {
     app.route('/plataformas')
     .get(platformCollection.obtener_plataformas);
 
+    app.route('/plataformas/insertar')
+    .post(platformCollection.insertar_plataformas);
+
+    app.route('/plataformas/insertar/blog')
+    .post(platformCollection.insertar_blog);
+
+    app.route('/plataformas/insertar/juego')
+    .post(platformCollection.insertar_juego);
+    
+    app.route('/blog')
+    .get(platformCollection.obtener_blog);
+
 }

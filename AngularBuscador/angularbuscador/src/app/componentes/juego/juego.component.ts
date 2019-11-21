@@ -18,12 +18,8 @@ export class JuegoComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute,
               private consolasService:ConsolasService) {
     this.activatedRoute.params.subscribe(params => {
-      console.log(params['idConsola']);
-      console.log(params['idJuego']);
       this.idConsola = params['idConsola'];
-      this.idJuego = params['idJuego'];
-      this.indexOfGame = this.consolasService.getIndexJuego(this.idJuego);
-      this.juego = this.consolasService.obtieneJuego(this.idConsola, this.indexOfGame);      
+      this.idJuego = params['idJuego'];    
     })
 
     this.consolasService.getInfoJuego(this.idConsola, this.idJuego).subscribe(

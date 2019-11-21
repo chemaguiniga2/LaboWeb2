@@ -134,6 +134,11 @@ export class ConsolasService {
     return this.httpClient.get(servicioRest);
   }
 
+  getBlogs(){
+    let servicioRest = 'http://localhost:8585/blog';
+    return this.httpClient.get(servicioRest);
+  }
+
   getConsolaById(id:string){
     let servicioRest = `http://localhost:8585/plataformas/id/${id}`;
     return this.httpClient.get(servicioRest);
@@ -147,6 +152,27 @@ export class ConsolasService {
   getInfoJuego(idPlat:string, idJuego:string){
     let servicioRest = `http://localhost:8585/plataformas/idPlat/idJuego/${idPlat}/${idJuego}`;
     return this.httpClient.get(servicioRest);
+  }
+
+  getJuegoBuscador(reg:string){
+    let servicioRest = `http://localhost:8585/plataformas/regex/juego/${reg}`;
+    return this.httpClient.get(servicioRest);
+  }
+
+  insertarConsola(consola:any) {
+    let servicioRest = `http://localhost:8585/plataformas/insertar`;
+    return this.httpClient.post(servicioRest, consola, { responseType: 'text' });
+
+  }
+
+  insertarBlog(blog:any) {
+    let servicioRest = `http://localhost:8585/plataformas/insertar/blog`;
+    return this.httpClient.post(servicioRest, blog, { responseType: 'text' });
+  }
+
+  insertarJuego(juego:any) {
+    let servicioRest = `http://localhost:8585/plataformas/insertar/juego`;
+    return this.httpClient.post(servicioRest, juego, { responseType: 'text' });
   }
 
   obtieneConsolas():Consola[]{
@@ -175,6 +201,11 @@ export class ConsolasService {
       }
     }
     return resultadoConsolas;
+  }
+
+  getConsolasByNombre(nombre:string){
+    let servicioRest = `http://localhost:8585/plataformas/regex/${nombre}`;
+    return this.httpClient.get(servicioRest);
   }
 
   buscarJuegos(palabras:string):any[]{

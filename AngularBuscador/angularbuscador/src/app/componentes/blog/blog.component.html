@@ -41,7 +41,7 @@
   <div class="" style="width: 100%;" *ngFor="let entrada of entradas; let i = index">
     <hr>
     <h4>{{ entrada.nombre }}</h4>
-    <p>{{ entrada.fecha | date:'medium' }}</p>
+    <p>{{ entrada.fecha_entrada | date:'medium' }}</p>
     <p>{{ entrada.entrada }}</p>
   </div>
 </div>

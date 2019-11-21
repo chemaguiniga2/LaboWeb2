@@ -9,17 +9,24 @@ import { ConsolasService } from '../../../servicios/consolas.service';
 })
 export class ResjuegosComponent implements OnInit {
 
-  juegos:any[] = [];
+  juegos:any;
   palabrasBusqueda:string;
   constructor(private activatedRoute:ActivatedRoute,
-    private consolasService:ConsolasService) { }
+    private consolasService:ConsolasService) {
+      this.activatedRoute.params.subscribe(params => {
+
+        this.palabrasBusqueda = params['palabrasBusqueda'];
+        
+      })
+      this.consolasService.getJuegoBuscador(this.palabrasBusqueda).subscribe(
+        consolas => {
+          this.juegos = consolas;
+          console.log(consolas);
+        }
+      )
+    }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-    console.log(params['palabrasBusqueda']);
-    this.palabrasBusqueda = params['palabrasBusqueda'];
-    this.juegos = this.consolasService.buscarJuegos(this.palabrasBusqueda);
-    })
   }
 
 }

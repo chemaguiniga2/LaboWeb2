@@ -16,6 +16,7 @@ import { ResconsolasComponent } from './componentes/buscador/resconsolas/rescons
 import { ResjuegosComponent } from './componentes/buscador/resjuegos/resjuegos.component';
 import { BlogComponent } from './componentes/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdministracionComponent } from './componentes/administracion/administracion.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ResconsolasComponent,
     ResjuegosComponent,
     BlogComponent,
+    AdministracionComponent,
     
   ],
   imports: [

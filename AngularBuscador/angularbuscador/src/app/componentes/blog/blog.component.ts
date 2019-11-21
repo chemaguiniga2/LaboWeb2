@@ -12,13 +12,20 @@ export class BlogComponent implements OnInit {
   formulario:FormGroup;
   isValidNombre:boolean=false;
   isValidEntrada:boolean=false;
-  entradas:any[];
+  entradas:any;
 
   constructor(private consolasService:ConsolasService) {
     this.formulario = new FormGroup({
       'nombre': new FormControl('', [Validators.required, Validators.minLength(5)]),
       'entrada': new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(30)]),
     })
+
+    this.consolasService.getBlogs().subscribe(
+      blog => {
+        this.entradas = blog;
+        console.log(blog);
+      }
+    )
   }
 
   ngOnInit() {
@@ -33,13 +40,15 @@ export class BlogComponent implements OnInit {
     this.isValidNombre = !this.formulario.get('nombre').valid;
     
     if (this.formulario.valid) {
-      this.consolasService.guardarEntrada({
-        nombre: this.formulario.controls['nombre'].value,
-        fecha: this.consolasService.getFecha(),
-        entrada: this.formulario.controls['entrada'].value,
-      });
       
-      this.entradas = this.consolasService.obtenerEntradas();
+      this.consolasService.insertarBlog(this.formulario.value).subscribe();
+      
+      // this.consolasService.getBlogs().subscribe(
+      //   blog => {
+      //     this.entradas = blog;
+      //     console.log(blog);
+      //   }
+      // )
     }
   }
 

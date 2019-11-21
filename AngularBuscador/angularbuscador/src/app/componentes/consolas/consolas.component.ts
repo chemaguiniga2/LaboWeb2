@@ -15,7 +15,6 @@ export class ConsolasComponent implements OnInit {
     this.consolasService.getConsolas().subscribe(
       consolas => {
         this.consolasMongo = consolas;
-        console.log(consolas);
       }
     )
   }
